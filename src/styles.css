@@ -230,3 +230,14 @@ h1 {
     transform: translateY(0%);
   }
 }
+
+.buttonReset {
+  display: flex;
+
+  font-size: 2rem;
+  border: 2px solid;
+  border-radius: 4px;
+  padding: 2px 8px;
+  outline-offset: 4px;
+  background-color: azure;
+}
