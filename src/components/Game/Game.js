@@ -57,7 +57,7 @@ function Game() {
       <button className="buttonReset" onClick={resetGame}>
         Reset Game
       </button>
-      {gameStatus}
+
       <GuessResults guessedWords={guessedWords} answer={answer} />
 
       <GuessInput
