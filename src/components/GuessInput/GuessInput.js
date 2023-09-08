@@ -29,8 +29,6 @@ function GuessInput({ guessedWords, setGuessedWords }) {
           title="Only 5 caracters allowed!"
         />
       </form>
-      <p>Current Input Guess: {guessInput}</p>
-      <p>Guessed Words: {[...guessedWords]}</p>
     </>
   );
 }

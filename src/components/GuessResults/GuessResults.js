@@ -1,16 +1,30 @@
 import React from "react";
 
+import Guess from "../Guess/Guess";
+
+import { range } from "../../utils";
+import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
+
 function GuessResults({ guessedWords }) {
+  const maxNumOfWords = range(NUM_OF_GUESSES_ALLOWED);
+
   return (
     <div className="guess-results">
-      {guessedWords.length > 0 &&
-        guessedWords.map((word) => {
+      {maxNumOfWords.map((index) => {
+        if (guessedWords[index] !== undefined) {
+          return <Guess word={guessedWords[index]} key={crypto.randomUUID()} />;
+        } else if (guessedWords[index] === undefined) {
           return (
             <p className="guess" key={crypto.randomUUID()}>
-              {word}
+              <span className="cell"></span>
+              <span className="cell"></span>
+              <span className="cell"></span>
+              <span className="cell"></span>
+              <span className="cell"></span>
             </p>
           );
-        })}
+        }
+      })}
     </div>
   );
 }

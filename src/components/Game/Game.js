@@ -11,7 +11,7 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 function Game() {
-  const [guessedWords, setGuessedWords] = React.useState(["TESTE", "HELLO"]);
+  const [guessedWords, setGuessedWords] = React.useState([]);
 
   return (
     <>
