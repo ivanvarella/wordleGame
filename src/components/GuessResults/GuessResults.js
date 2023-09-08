@@ -5,14 +5,20 @@ import Guess from "../Guess/Guess";
 import { range } from "../../utils";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 
-function GuessResults({ guessedWords }) {
+function GuessResults({ guessedWords, answer }) {
   const maxNumOfWords = range(NUM_OF_GUESSES_ALLOWED);
 
   return (
     <div className="guess-results">
       {maxNumOfWords.map((index) => {
         if (guessedWords[index] !== undefined) {
-          return <Guess word={guessedWords[index]} key={crypto.randomUUID()} />;
+          return (
+            <Guess
+              answer={answer}
+              word={guessedWords[index]}
+              key={crypto.randomUUID()}
+            />
+          );
         } else if (guessedWords[index] === undefined) {
           return (
             <p className="guess" key={crypto.randomUUID()}>
