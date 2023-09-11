@@ -243,3 +243,56 @@ h1 {
   outline-offset: 4px;
   background-color: azure;
 }
+
+.keyboard-container {
+  display: flexbox;
+  text-align: center;
+  justify-content: center;
+}
+
+.key-keyboard {
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+  background-color: hsl(0deg 0% 90%);
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 38px;
+  height: 38px;
+  margin: 2px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+.correctKey {
+  background-color: hsl(150deg 70% 30%);
+  color: white;
+}
+
+.misplacedKey {
+  background-color: hsl(50deg 100% 30%);
+  color: white;
+}
+
+.incorrectKey {
+  background-color: hsl(150deg 70% 30%);
+  color: white;
+}
+
+.key-keyboard:hover {
+  background-color: hsl(0deg 0% 75%);
+}
+
+.key-keyboard:active {
+  color: white;
+  background-color: hsl(0deg 0% 50%);
+}
+
+/* --color-success: hsl(150deg 70% 30%);
+--color-warning: hsl(50deg 100% 30%);
+--color-error: hsl(0deg 70% 45%);
+--color-gray-100: hsl(0deg 0% 10%);
+--color-gray-300: hsl(0deg 0% 25%);
+--color-gray-500: hsl(0deg 0% 50%);
+--color-gray-700: hsl(0deg 0% 75%);
+--color-gray-900: hsl(0deg 0% 90%); */

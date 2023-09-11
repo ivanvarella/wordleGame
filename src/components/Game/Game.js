@@ -8,6 +8,7 @@ import GuessInput from "../GuessInput/GuessInput";
 import GuessResults from "../GuessResults/GuessResults";
 import BannerGameOver from "../BannerGameOver/BannerGameOver";
 import ButtonReset from "../ButtonReset/ButtonReset";
+import Keyboard from "../Keyboard/Keyboard";
 
 // Pick a random word on every pageload.
 let answer = sample(WORDS);
@@ -58,6 +59,13 @@ function Game() {
       <GuessResults guessedWords={guessedWords} answer={answer} />
 
       <ButtonReset resetGame={resetGame} />
+
+      <Keyboard
+        guessInput={guessInput}
+        setGuessInput={setGuessInput}
+        guessedWords={guessedWords}
+        answer={answer}
+      />
 
       <GuessInput
         guessInput={guessInput}
