@@ -7,6 +7,7 @@ import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 import GuessInput from "../GuessInput/GuessInput";
 import GuessResults from "../GuessResults/GuessResults";
 import BannerGameOver from "../BannerGameOver/BannerGameOver";
+import ButtonReset from "../ButtonReset/ButtonReset";
 
 // Pick a random word on every pageload.
 let answer = sample(WORDS);
@@ -54,11 +55,9 @@ function Game() {
 
   return (
     <>
-      <button className="buttonReset" onClick={resetGame}>
-        Reset Game
-      </button>
-
       <GuessResults guessedWords={guessedWords} answer={answer} />
+
+      <ButtonReset resetGame={resetGame} />
 
       <GuessInput
         guessInput={guessInput}
