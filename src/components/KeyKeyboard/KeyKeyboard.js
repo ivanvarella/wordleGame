@@ -1,16 +1,6 @@
 import React from "react";
 
-import { checkGuess } from "../../game-helpers";
-import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
-import { range } from "../../utils";
-
-function KeyKeyboard({
-  keyOfKeyboard,
-  guessInput,
-  setGuessInput,
-  guessedWords,
-  answer,
-}) {
+function KeyKeyboard({ keyOfKeyboard, keyStatus, guessInput, setGuessInput }) {
   const handleButton = (keyOfKeyboard) => {
     nextButtonLetter = guessInput + keyOfKeyboard;
 
@@ -25,7 +15,7 @@ function KeyKeyboard({
   return (
     <span>
       <button
-        className="key-keyboard"
+        className={keyStatus}
         onClick={() => {
           handleButton(keyOfKeyboard);
         }}
