@@ -2,7 +2,7 @@ import React from "react";
 
 import { checkGuess } from "../../game-helpers";
 
-function Guess({ word, answer, keys, setKeys }) {
+function Guess({ word, answer, keys }) {
   const letters = [...word];
 
   const checkedGuess = checkGuess(word, answer);
@@ -10,6 +10,13 @@ function Guess({ word, answer, keys, setKeys }) {
   return (
     <p className="guess">
       {letters.map((letter, index) => {
+        //Keyboard keys color status
+        // Problem: some how the status are been applied on keys before
+        // the use of setKeys. Also the KEYS_INICIAL are been updated
+        // even not doing it explicitly.
+        // And this is causing another problem that is not possible
+        // to reset the keyboard by setKeys(KEYS_INITIAL) once KEYS_INICIAL
+        // are altered.
         const objIndex = keys.findIndex(
           (obj) => obj.keyOfKeyboard === checkedGuess[index].letter
         );
