@@ -1,21 +1,22 @@
 import React from "react";
 
 import KeyKeyboard from "../KeyKeyboard/KeyKeyboard";
+import { KEYS_INICIAL } from "../../utils";
 
-function Keyboard({ guessInput, setGuessInput, guessedWords, answer, keys }) {
+function Keyboard({ guessInput, setGuessInput, keys, guessedWords, answer }) {
   return (
     <>
       <div className="keyboard-container">
-        {keys.map(({ keyOfKeyboard, id, keyStatus }) => (
-          <KeyKeyboard
-            key={id}
-            keyOfKeyboard={keyOfKeyboard}
-            keyStatus={keyStatus}
-            guessInput={guessInput}
-            setGuessInput={setGuessInput}
-            guessedWords={guessedWords}
-            answer={answer}
-          />
+        {KEYS_INICIAL.map(({ keyOfKeyboard, id }) => (
+          <React.Fragment key={id}>
+            <KeyKeyboard
+              keyOfKeyboard={keyOfKeyboard}
+              guessInput={guessInput}
+              setGuessInput={setGuessInput}
+              guessedWords={guessedWords}
+              answer={answer}
+            />
+          </React.Fragment>
         ))}
       </div>
     </>

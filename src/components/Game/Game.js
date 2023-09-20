@@ -3,7 +3,6 @@ import React from "react";
 import { sample } from "../../utils";
 import { WORDS } from "../../data";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
-import { KEYS_INICIAL } from "../../utils";
 
 import GuessInput from "../GuessInput/GuessInput";
 import GuessResults from "../GuessResults/GuessResults";
@@ -21,20 +20,15 @@ function Game() {
   const [guessInput, setGuessInput] = React.useState("");
   // playing, won, lost
   const [gameStatus, setGameStatus] = React.useState("playing");
-  const [keys, setKeys] = React.useState(KEYS_INICIAL);
 
-  const resetGame = (event) => {
-    event.preventDefault();
+  const resetGame = () => {
     answer = sample(WORDS);
+
     console.log("New word:");
     console.log({ answer });
+
     setGuessedWords([]);
     setGuessInput("");
-    // Reset the keyboard keys - not working
-    const nextKeys = [...KEYS_INICIAL];
-    setKeys(KEYS_INICIAL);
-    console.log("Initial keys", KEYS_INICIAL);
-    console.log("keys", keys);
 
     setGameStatus("playing");
   };
@@ -64,7 +58,7 @@ function Game() {
 
   return (
     <>
-      <GuessResults guessedWords={guessedWords} answer={answer} keys={keys} />
+      <GuessResults guessedWords={guessedWords} answer={answer} />
 
       <ButtonReset resetGame={resetGame} />
 
@@ -73,7 +67,6 @@ function Game() {
         setGuessInput={setGuessInput}
         guessedWords={guessedWords}
         answer={answer}
-        keys={keys}
       />
 
       <GuessInput

@@ -1,6 +1,13 @@
 import React from "react";
+import { checkGuess } from "../../game-helpers";
 
-function KeyKeyboard({ keyOfKeyboard, keyStatus, guessInput, setGuessInput }) {
+function KeyKeyboard({
+  keyOfKeyboard,
+  guessInput,
+  setGuessInput,
+  guessedWords,
+  answer,
+}) {
   const handleButton = (keyOfKeyboard) => {
     nextButtonLetter = guessInput + keyOfKeyboard;
 
@@ -12,10 +19,23 @@ function KeyKeyboard({ keyOfKeyboard, keyStatus, guessInput, setGuessInput }) {
     setGuessInput(nextButtonLetter);
   };
 
+  let mapOfKeys = [];
+  guessedWords.forEach((word) => {
+    mapOfKeys.push(...checkGuess(word, answer));
+  });
+
+  let status = null;
+  mapOfKeys.forEach((key) => {
+    if (keyOfKeyboard === key.letter) {
+      status = key.status + "Key";
+      // let status2 = status + "Key";
+      // console.log("status: ", status2);
+    }
+  });
   return (
     <span>
       <button
-        className={keyStatus}
+        className={`key-keyboard ${status}`}
         onClick={() => {
           handleButton(keyOfKeyboard);
         }}
