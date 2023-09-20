@@ -28,8 +28,6 @@ function KeyKeyboard({
   mapOfKeys.forEach((key) => {
     if (keyOfKeyboard === key.letter) {
       status = key.status + "Key";
-      // let status2 = status + "Key";
-      // console.log("status: ", status2);
     }
   });
   return (
